@@ -10,7 +10,9 @@ export const crearVehiculo = async (req, res) => {
       precio,
       estado,
     });
+
     const vehiculoCreado = await nuevoVehiculo.save();
+
     res.status(201).json(vehiculoCreado);
   } catch (error) {
     res.status(500).json({ message: "Error al agregar vehículo" });
@@ -22,6 +24,7 @@ export const obtenerVehiculos = async (req, res) => {
     const vehiculos = await Vehiculo.find();
     res.json(vehiculos);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Error al obtener vehículos" });
   }
 };
@@ -69,6 +72,7 @@ export const eliminarVehiculo = async (req, res) => {
     }
     res.sendStatus(204);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Error al eliminar el vehículo" });
   }
 };

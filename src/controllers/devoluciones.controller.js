@@ -13,6 +13,7 @@ export const crearDevolucion = async (req, res) => {
     const devolucionCreada = await nuevaDevolucion.save();
     res.status(201).json(devolucionCreada);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Error al agregar devolución" });
   }
 };
@@ -22,6 +23,7 @@ export const obtenerDevoluciones = async (req, res) => {
     const devoluciones = await Devolucion.find();
     res.json(devoluciones);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Error al obtener devoluciones" });
   }
 };
@@ -34,6 +36,7 @@ export const obtenerDevolucionPorId = async (req, res) => {
     }
     res.json(devolucion);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Error al obtener la devolución" });
   }
 };
@@ -71,6 +74,7 @@ export const eliminarDevolucion = async (req, res) => {
     }
     res.sendStatus(204);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Error al eliminar la devolución" });
   }
 };
